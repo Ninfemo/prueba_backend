@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match>
+        <Package name="co.edu.univalle.demo.model"/>
+    </Match>
+    <Match>
+        <Package name="co.edu.univalle.demo.config"/>
+    </Match>
+    <Match>
+        <Class name="co.edu.univalle.demo.DemoDsUnivalleApplication"/>
+    </Match>
+</FindBugsFilter>

@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require
+    username: postgres.eepshvqajtuvibpohsxu
+    password: ${SUPABASE_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require
+    user: postgres.eepshvqajtuvibpohsxu
+    password: ${SUPABASE_DB_PASSWORD}
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: ${PORT:8085}
+  servlet:
+    context-path: /demo-ds-univalle
+
+app:
+  jwt:
+    # Clave secreta para firmar los tokens de autenticacion (HMAC-SHA256).
+    # En Render, define la variable de entorno JWT_SECRET con un valor largo y aleatorio.
+    secret: ${JWT_SECRET:clave-de-desarrollo-cambiar-en-produccion-0123456789}
+    expiracion-horas: 24
