@@ -1,6 +1,6 @@
 package co.edu.univalle.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,8 +40,11 @@ public class UsuarioModel {
     /**
      * Contraseña del usuario. Al recibirla en un JSON de entrada se acepta en texto plano
      * (el servicio la convierte a hash BCrypt antes de guardar); al serializar una respuesta
-     * NUNCA se expone (véase {@code @JsonIgnore} en el getter), incluso si ya está hasheada.
+     * NUNCA se expone. {@code WRITE_ONLY} es la clave: a diferencia de {@code @JsonIgnore}
+     * (que bloquea el campo en ambas direcciones y por eso el valor nunca llegaba al service),
+     * esto permite leerlo desde el JSON de entrada pero jamás lo incluye en una respuesta.
      */
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name = "password_hash", nullable = false, length = 255)
     private String passwordHash;
 
@@ -52,15 +55,5 @@ public class UsuarioModel {
     /** Fecha y hora de creación del registro. */
     @Column(name = "fecha_creacion", insertable = false, updatable = false)
     private LocalDateTime fechaCreacion;
-
-    /**
-     * Oculta el hash de la contraseña en cualquier respuesta JSON de la API.
-     *
-     * @return el hash de la contraseña (uso interno únicamente)
-     */
-    @JsonIgnore
-    public String getPasswordHash() {
-        return passwordHash;
-    }
 
 }
