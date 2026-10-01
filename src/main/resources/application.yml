@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres.adimywocspqkunmkftgs:[Mosorongo_2312]@aws-0-us-west-2.pooler.supabase.com:5432/postgres?sslmode=require
+    url: jdbc:postgresql://postgres.adimywocspqkunmkftgs:Mosorongo_2312@aws-0-us-west-2.pooler.supabase.com:5432/postgres?sslmode=require
     username: postgres.adimywocspqkunmkftgs
     password: ${SUPABASE_DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   flyway:
     enabled: true
-    url: jdbc:postgresql://postgres.adimywocspqkunmkftgs:[Mosorongo_2312]@aws-0-us-west-2.pooler.supabase.com:5432/postgres?sslmode=require
+    url: jdbc:postgresql://postgres.adimywocspqkunmkftgs:Mosorongo_2312@aws-0-us-west-2.pooler.supabase.com:5432/postgres?sslmode=require
     user: postgres.adimywocspqkunmkftgs
     password: ${SUPABASE_DB_PASSWORD}
     locations: classpath:db/migration
