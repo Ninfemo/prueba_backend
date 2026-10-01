@@ -7,8 +7,8 @@ spring:
 
   flyway:
     enabled: true
-    url: jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require
-    user: postgres.eepshvqajtuvibpohsxu
+    url: jdbc:postgresql://postgres.adimywocspqkunmkftgs:[Mosorongo_2312]@aws-0-us-west-2.pooler.supabase.com:5432/postgres?sslmode=require
+    user: postgres.adimywocspqkunmkftgs
     password: ${SUPABASE_DB_PASSWORD}
     locations: classpath:db/migration
     baseline-on-migrate: true
